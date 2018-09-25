@@ -47,6 +47,6 @@ with open("/home/"+main+"/.bashrc","a") as f:
 
 os.system("chmod +x %s*" % scorebotdir)
 os.system("chmod 777 %sname %ssetup.bash" % (scorebotdir, scorebotdir))
-os.system("chmod 755 /etc/init.d/scorebot")
-os.system("update-rc.d scorebot enable")
+os.system("chmod 755 /etc/init.d/%s" % scorebotInit)
+#os.system("update-rc.d %s enable" % scorebotInit)
 os.remove("%ssetup.py" % scorebotdir)
