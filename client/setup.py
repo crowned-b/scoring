@@ -11,7 +11,7 @@ while (scorebotdir[0]!='/' or scorebotdir[-1]!='/'):
 
 main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
 print ''
-while (not os.system("getent passwd %s" % main)):
+while (os.system("getent passwd %s" % main)!=0):
    print "User %s does not exist\n" % main
    main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
    print ''
