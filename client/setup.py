@@ -18,7 +18,7 @@ while (os.system("getent passwd %s" % main)!=0):
 
 scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\nEnter Filename: ")
 print ''
-while (os.path.isfile(scorebotInit)):
+while (os.path.isfile("/etc/init.d/%s" % scorebotInit)):
    print "Init script with name %s already exists" % scorebotInit
    scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\nEnter Filename: ")
    print ''
