@@ -2,17 +2,15 @@ import os
 import sys
 import py_compile
 
-if len(sys.argv)==2:
-   main=sys.argv[1]
-else:
-   print "Usage: python setup.py <Main User>\nExample: python setup.py cyber\n"
-   sys.exit()
+scorebotdir=raw_input("Enter directory for scorebot files\n Example: /var/scorebot/\nEnter Directory: ")
+main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
+scorebotInit=raw_input("Enter name for scorebot init script\n Example: scorebot\n Enter Filename: "
 
 pwd=os.getcwd()
 
-scorebotdir="/var/scorebot/"
 os.makedir(scorebotdir)
 files=os.listdir(pwd)
+
 for i in files:
    os.rename(pwd+i,scorebotdir+i)
 
@@ -21,7 +19,7 @@ os.remove(scorebotdir+"client.py")
 
 template="while sleep 5; do python %sclient.pyc %sclient.json; done &" % (scorebotdir,scorebotdir)
 
-with open("/etc/init.d/scorebot",'w') as f:
+with open("/etc/init.d/%s" % scorebotInit,'w') as f:
    f.write(template)
    f.close()
 
