@@ -2,11 +2,27 @@ import os
 import sys
 import py_compile
 
+
 scorebotdir=raw_input("Enter directory for scorebot files\nExample: /var/scorebot/\nEnter Directory: ")
 print ''
+while (scorebotdir[0]!='/' and scorebotdir[1]!='/'):
+   print "Incorrect directory format. Example: /var/scorebot/\n"
+   scorebotdir=raw_input("Enter directory for scorebot files\nExample: /var/scorebot/\nEnter Directory: ")
+
 main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
 print ''
+while (not os.system("getent passwd %s" % main)):
+   print "User %s does not exist\n" % main
+   main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
+   print ''
+
 scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\nEnter Filename: ")
+print ''
+while (os.path.isfile(scorebotInit)):
+   print "Init script with name %s already exists" % scorebotInit
+   scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\nEnter Filename: ")
+   print ''
+
 
 pwd=os.getcwd()
 
