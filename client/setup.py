@@ -5,7 +5,7 @@ import py_compile
 
 scorebotdir=raw_input("Enter directory for scorebot files\nExample: /var/scorebot/\nEnter Directory: ")
 print ''
-while (scorebotdir[0]!='/' and scorebotdir[1]!='/'):
+while (scorebotdir[0]!='/' and scorebotdir[-1]!='/'):
    print "Incorrect directory format. Example: /var/scorebot/\n"
    scorebotdir=raw_input("Enter directory for scorebot files\nExample: /var/scorebot/\nEnter Directory: ")
 
