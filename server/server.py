@@ -7,10 +7,11 @@ import json
 from operator import itemgetter
 
 debug=False
-leaderboards=[]
+leaderboard=[]
 
 def onNewClient(connection,client_address):
    global debug
+   global leaderboard
    try:
       with open('server.json') as f:
          points=json.dumps(json.load(f)) #load points
