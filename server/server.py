@@ -148,7 +148,10 @@ def makeHtml(pack):
 
    for i in pack[5:]:
       with open(filename,'a') as myfile:
-         myfile.write("<li>%s: %s</li>" % (i[0],i[1]))
+         if i[1]<0:
+            myfile.write("<li><font color='red'>%s: %s</font></li>" % (i[0],i[1]))
+         else:
+            myfile.write("<li>%s: %s</li>" % (i[0],i[1]))
 
 def makeLeader(leaderboard):
    template="""
