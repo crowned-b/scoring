@@ -86,7 +86,7 @@ except:
    print "Namefile does not exist"
    sys.exit()
 
-if name="":
+if name=="":
    sys.exit()
 
 try:
