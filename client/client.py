@@ -16,9 +16,12 @@ class Point():
 class PointGroup(): #see server.json for examples of points/pointgroups
    def __init__(self,description,value,boolean,names=[]):
       self.points=[]
-      for i in names:
-         self.points.append(Point(description%i,value,boolean%i))
-      self.isGroup=True
+      if names==[]:
+         Point().__init__(self,description,value,boolean)
+      else:
+         for i in names:
+            self.points.append(Point(description%i,value,boolean%i))
+         self.isGroup=True
 
 def getScore(name,points):
    pointsGotten=[]
@@ -102,8 +105,10 @@ try:
 
    for i in pointSkel:
       parts = pointSkel.get(str(i))
-      points.append(PointGroup(parts[0],parts[1],parts[2],parts[3]))
-
+      if len(parts)==3:
+         points.append(Point(parts[0],parts[1],parts[2]))
+      else:
+         points.append(PointGroup(parts[0],parts[1],parts[2],parts[3]))
 
    pack=getScore(name,points)
    for i in pack[-1]:
@@ -112,9 +117,7 @@ try:
       pack.append([d,v])
    pack.pop(5)
    pack=json.dumps({"1":pack})
-
    score(server,port,pack)
 except:
    print "could not send points to scoring server\n"
    sys.exit()
-
