@@ -24,7 +24,7 @@ while (os.path.isfile("/etc/init.d/%s" % scorebotInit)):
    print ''
 
 
-pwd=os.getcwd()
+pwd=os.getcwd()+'/'
 
 os.makedirs(scorebotdir)
 files=os.listdir(pwd)
