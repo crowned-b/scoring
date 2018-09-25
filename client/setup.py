@@ -4,7 +4,7 @@ import py_compile
 
 scorebotdir=raw_input("Enter directory for scorebot files\nExample: /var/scorebot/\nEnter Directory: ")
 main=raw_input("Enter main user for image\nExample: cyber\nEnter User: ")
-scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\n Enter Filename: ")
+scorebotInit=raw_input("Enter name for scorebot init script\nExample: scorebot\nEnter Filename: ")
 
 pwd=os.getcwd()
 
