@@ -26,7 +26,7 @@ while (os.path.isfile(scorebotInit)):
 
 pwd=os.getcwd()
 
-os.makedir(scorebotdir)
+os.makedirs(scorebotdir)
 files=os.listdir(pwd)
 
 for i in files:
