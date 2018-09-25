@@ -1,3 +1,6 @@
 {
-   "1": ["%s exists", 5, "ls / | grep %s", ["var"]]
+   "1": ["ls command works", 5, "ls"],
+   "2": ["bad user %s removed", 10, "getent passwd %s", ["toor", "eviluser","backdoor"]],
+   "3": ["template description", pointValue, "linux command which returns 0 for success or 1 for fail"],
+   "4": ["template with multiple subjects %s", pointValuePerSubject, "boolean with multiple subjects %s", ["subject1","subject2"]]
 }
